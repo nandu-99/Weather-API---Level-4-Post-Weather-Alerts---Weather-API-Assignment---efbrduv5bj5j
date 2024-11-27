@@ -48,14 +48,14 @@ async function saveDataToDatabase(data) {
 async function saveWeatherAlert(alertDetails) {
   try{
     const {city, date, humidity} = alertDetails;
-    if (!city || !date || !humidity) {
-      throw new Error("missing");
-    }
-    // const data = await getDataFromDatabase(); 
-    const cityData = data.find((cityObj) => cityObj.city === city);
-    if (!cityData) {
-      throw new Error("missing");
-    }
+    // if (!city || !date || !humidity) {
+    //   throw new Error("missing");
+    // }
+    // // const data = await getDataFromDatabase(); 
+    // const cityData = data.find((cityObj) => cityObj.city === city);
+    // if (!cityData) {
+    //   throw new Error("missing");
+    // }
     const det = await saveDataToDatabase(alertDetails)
     return "ab"
   } catch (e) {
