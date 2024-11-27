@@ -46,7 +46,22 @@ async function saveDataToDatabase(data) {
 
 // Level 4: Post Weather Alerts
 async function saveWeatherAlert(alertDetails) {
-   // TODO: Implement this function
+  try{
+    const {city, date, humidity} = alertDetails;
+    if (!city || !date || !humidity) {
+      throw new Error("missing");
+    }
+    // const data = await getDataFromDatabase(); 
+    const cityData = data.find((cityObj) => cityObj.city === city);
+    if (!cityData) {
+      throw new Error("missing");
+    }
+    const det = await saveDataToDatabase(alertDetails)
+    return "ab"
+  } catch (e) {
+    console.error(error);
+    throw new Error("abc")
+  }
 }
 
 module.exports = {
